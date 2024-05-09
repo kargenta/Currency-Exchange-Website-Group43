@@ -1,10 +1,29 @@
 <html>
-    <header>
+    <head>
         <title>Currency Exchange</title>
-        <style></style>
-        <script></script>
-    </header>
+        <link rel="stylesheet" href="webpage_design.css">
+        <script src="" defer></script>
+    </head>
     <body>
+        <!-- Nav Bar-->
+        <nav id="main-nav">
+            <ul>
+                <li><a href="about_page.html">About</a></li>
+                <li><a href=""></a></li>
+                <li><a href=""></a></li>
+            </ul>
+        </nav>
         
+        <div id="conversionDiv">
+            <h1>Find Exchange Rate</h1>
+            <form id="exchangeRateForm" method="get" action="" onsubmit=" ; return false">
+                <select id="from" class="currency" required></select>
+                <select id="to" class="currency" required></select>
+                <input type="submit">
+            </form>
+        </div>
+        <div id="chartDiv">
+
+        </div>
     </body>
 </html>
