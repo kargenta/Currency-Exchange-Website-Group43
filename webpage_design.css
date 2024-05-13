@@ -1,0 +1,34 @@
+body{
+    background-color: powderblue;
+    font-size: 16px;
+    font-family:  'Trebuchet MS', sans-serif;
+}
+
+#main-nav {
+    background-color: seashell;
+    font-size: 18px;
+    margin:0;    
+    text-align: center;   
+}
+
+#main-nav li{
+    display:inline-block;
+    position: relative;
+}
+
+#main-nav li:hover{
+    background-color: mediumaquamarine;
+    color: linen;
+}
+
+#main-nav ul li{
+    list-style-type:none;
+    display:inline-block;
+    padding:10px;
+}
+
+.footer{
+    background-color: papayawhip;
+    text-align: center;  
+    padding:1px; 
+}
