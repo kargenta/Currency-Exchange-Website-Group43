@@ -1,34 +1,113 @@
-body{
+body {
     background-color: powderblue;
     font-size: 16px;
-    font-family:  'Trebuchet MS', sans-serif;
+    font-family: 'Trebuchet MS', sans-serif;
 }
 
 #main-nav {
     background-color: seashell;
     font-size: 18px;
-    margin:0;    
-    text-align: center;   
+    margin: 0;
+    text-align: center;
 }
 
-#main-nav li{
-    display:inline-block;
+#main-nav li {
+    display: inline-block;
     position: relative;
 }
 
-#main-nav li:hover{
+#main-nav li:hover {
     background-color: mediumaquamarine;
     color: linen;
 }
 
-#main-nav ul li{
-    list-style-type:none;
-    display:inline-block;
-    padding:10px;
+#main-nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px;
 }
 
-.footer{
+.footer {
     background-color: papayawhip;
-    text-align: center;  
-    padding:1px; 
+    text-align: center;
+    padding: 1px;
+}
+
+/* Styling for the About section */
+.about-section {
+    background-color: floralwhite;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-section h2 {
+    color: steelblue;
+}
+
+.about-section h3 {
+    color: darkslategray;
+    margin-top: 20px;
+}
+
+.about-section p {
+    line-height: 1.6;
+}
+
+/* Additional CSS for the Help section */
+.help-section {
+    background-color: floralwhite;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.help-section h2 {
+    color: steelblue;
+}
+
+.help-section h3 {
+    color: darkslategray;
+    margin-top: 20px;
+}
+
+.help-section p {
+    line-height: 1.6;
+}
+/* Additional CSS for the contact form */
+form {
+    margin-top: 20px; /* Add space above the form */
+}
+
+label {
+    font-weight: bold; /* Make labels bold */
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%; /* Make input fields and textarea full width */
+    padding: 8px; /* Add padding to input fields and textarea */
+    margin-bottom: 10px; /* Add space between input fields and textarea */
+    border: 1px solid #ccc; /* Add border to input fields and textarea */
+    border-radius: 5px; /* Add border radius to input fields and textarea */
+}
+
+textarea {
+    resize: vertical; /* Allow vertical resizing of textarea */
+}
+
+button[type="submit"] {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text color */
+    padding: 10px 20px; /* Add padding to button */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add border radius */
+    cursor: pointer; /* Add cursor pointer */
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049; /* Darker green on hover */
 }

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page title -->
+    <title>Help</title>
+    <!-- Link to CSS stylesheet -->
+    <link rel="stylesheet" href="webpage_design.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav id="main-nav">
+        <ul>
+            <!-- Navigation links to different pages -->
+            <li><a href="home_page.html">Home</a></li>
+            <li><a href="functionality_page.html">Currency Exchange</a></li>
+            <li><a href="about_page.html">About</a></li>
+            <li><a href="help_page.html">Help</a></li>
+        </ul>
+    </nav>
+
+    <!-- Help Section -->
+    <section class="help-section">
+        <!-- Title of the Help Section -->
+        <h2>Help</h2>
+        <!-- Introduction to the Help Section -->
+        <p>Welcome to the Help section of our currency exchange platform. Whether you're a new user or just looking for some guidance, we're here to assist you in navigating our application effectively.</p>
+        
+        <!-- Getting Started Section -->
+        <h3>Getting Started</h3>
+        <!-- Steps to get started -->
+        <p>If you're new to our platform, here are some steps to help you get started:</p>
+        <!-- Ordered list of steps -->
+        <ol>
+            <li>Visit the <a href="home_page.html">Home</a> page to view real-time currency exchange rates.</li>
+            <li>Explore currency conversion functionality on the <a href="functionality_page.html">Currency Exchange</a> page by selecting the currency pair you're interested in.</li>
+            <li>Learn more about our project and team on the <a href="about_page.html">About</a> page.</li>
+        </ol>
+        
+        <!-- Using the Currency Converter Section -->
+        <h3>Using the Currency Converter</h3>
+        <!-- Instructions for using the currency converter tool -->
+        <p>Our currency converter tool allows you to quickly convert between different currencies. Here's how it works:</p>
+        <!-- Ordered list of steps -->
+        <ol>
+            <li>Enter the amount you want to convert in the input field.</li>
+            <li>Select the currencies you're converting from and to.</li>
+            <li>Click the "Convert" button to see the converted amount.</li>
+        </ol>
+
+        <!-- Contact Us Section -->
+        <h3>Contact Us</h3>
+        <!-- Prompt to contact support team -->
+        <p>If you can't find the answer to your question here, feel free to contact our support team for further assistance. Please fill out the form below:</p>
+        <!-- Contact form -->
+        <form action="submit_contact_form.php" method="POST">
+            <!-- Input fields for name, email, and message -->
+            <label for="name">Your Name:</label><br>
+            <input type="text" id="name" name="name" required><br>
+            
+            <label for="email">Your Email:</label><br>
+            <input type="email" id="email" name="email" required><br>
+            
+            <label for="message">Your Message:</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br>
+            
+            <!-- Submit button -->
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Footer title -->
+        <h3>INST377 Group Project</h3>
+        <!-- List of team members -->
+        <p>Katherine Argente, Daniel Gwira, Ariel Hong, Larissa Musaga, Arshul Shaik</p>
+    </footer>
+</body>
+</html>
