@@ -6,7 +6,7 @@ function getCurrencies() {
     fetch("https://v6.exchangerate-api.com/v6/d56e314bee9151ab29d0903d/latest/USD")
         .then((res) => res.json())
         .then((res) => {
-            for(const [key, value] of Object.entrries(res.conversion_rates)) {
+            for(const [key, value] of Object.entries(res.conversion_rates)) {
                 const option = document.createElement('option');
                 option.value = key;
                 option.text = key;
