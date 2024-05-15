@@ -7,3 +7,11 @@ This project was created for the final project of INST 377. Our webpage was crea
 Our target browser would be desktop browsers because we believe that most people utilizing a money conversion service would also be searching up and researching other facts about the countries they are sending/converting their money to. 
 
 # Link to Developer Manual:
+## How to install application and dependencies:
+API Database: `https://www.exchangerate-api.com/`
+
+## Running your application on a server:
+
+## API:
+
+## Future Development:
