@@ -17,7 +17,9 @@
         
         <div id="conversionDiv">
             <h1>Find Exchange Rate</h1>
-            <form id="exchangeRateForm" method="get" action="" onsubmit="addText(); return false">
+            <form id="exchangeRateForm" method="get" 
+            action="https://v6.exchangerate-api.com/v6/d56e314bee9151ab29d0903d/latest/USD" 
+            onsubmit="addText(); return false">
                 <select id="from" class="currency" required></select>
                 <select id="to" class="currency" required></select>
                 <input type="submit">
@@ -26,10 +28,7 @@
         <div id="converted">
 
         </div>
-        <p>Thank you to Free Forex API for providing real-time foreign exchange rates for the major currency pairs.</p>
-        <a href="https://www.freeforexapi.com">
-            <img alt="Free Forex API" src="https://www.freeforexapi.com/Images/link.png" height="20">
-        </a>
+        
         <div id="chartDiv">
 
         </div>
