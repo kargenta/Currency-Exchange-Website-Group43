@@ -19,7 +19,7 @@ function getCurrencies() {
 function addText() {
     let fromCurrency = document.getElementById("from").value;
     let toCurrency = document.getElementById("to").value;
-    const number = document.getElementById("number").value;
+    const amount = document.getElementById("amount").value;
 
     if (fromCurrency === toCurrency) {
         alert("You cannot convert to and from the same currency!");
@@ -28,8 +28,8 @@ function addText() {
         fetch(`https://v6.exchangerate-api.com/v6/d56e314bee9151ab29d0903d/pair/${fromCurrency}/${toCurrency}`)
             .then(res => res.json())
             .then((res) => {
-                let convertedAmt = res.conversion_rate*number;
-                document.getElementById("converted").innerHTML = `${number} ${fromCurrency} is equal to ${convertedAmt} ${toCurrency}`
+                let convertedAmt = res.conversion_rate*amount;
+                document.getElementById("converted").innerHTML = `${amount} ${fromCurrency} is equal to ${convertedAmt} ${toCurrency}`
             })
     }
 }
