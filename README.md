@@ -23,9 +23,11 @@ To install, just download our code. We utilize **ExchangeRate-API**'s Standard a
 
 #### Formats:
 `api-key`
+
 We have offered our own API key given through **ExchangeRate-API**'s free plan, but you can replace this within *currency_exchange_code.js* and get your own at `https://app.exchangerate-api.com/sign-up`.
 
 `ISO4217`
+
 This is the specified Three Letter Currency Code for your base currency (e.g. **USD** for US Dollars, etc.). We used **USD** for simplicity, but you're free to change it within *currency_exchange_code.js* to any base currency of your choosing.
 
 ### URL Structure for the Paired API:
@@ -33,6 +35,7 @@ This is the specified Three Letter Currency Code for your base currency (e.g. **
 
 #### Formats:
 `api-key`
+
 Again, we have offered our own personal API key but you can replace this within *currency_exchange_code.js* and get your own at `https://app.exchangerate-api.com/sign-up`.
 
 `fromCurrency`
