@@ -15,16 +15,17 @@
             </ul>
         </nav>
         
-        <div id="conversionDiv">
+         <div id="conversionDiv">
             <h1>Find Exchange Rate</h1>
             <form id="exchangeRateForm" method="get" action="" onsubmit=" ; return false">
-                <select id="from" class="currency" required></select>
+                <label for="from">From: </label>
+                <select id="from" class="currency" required></select><br>
+                <input type="number" id="amount" placeholder="Amount" required><br>
+                <label for="to">To: </label>
                 <select id="to" class="currency" required></select>
-                <input type="submit">
+                <input type="submit" value="Convert">
             </form>
-        </div>
-        <div id="chartDiv">
-
+            <h3 id="resultDisplay"></h3>
         </div>
         <!-- Footer -->
         <footer class="footer">
