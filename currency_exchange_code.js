@@ -20,6 +20,18 @@ function addText() {
     let fromCurrency = document.getElementById("from").value;
     let toCurrency = document.getElementById("to").value;
     const number = document.getElementById("number").value;
+
+    if (fromCurrency === toCurrency) {
+        alert("You cannot convert to and from the same currency!");
+        return;
+    } else {
+        fetch(`https://v6.exchangerate-api.com/v6/d56e314bee9151ab29d0903d/pair/${fromCurrency}/${toCurrency}`)
+            .then(res => res.json())
+            .then((res) => {
+                let convertedAmt = res.conversion_rate*number;
+                document.getElementById("converted").innerHTML = `${number} ${fromCurrency} is equal to ${convertedAmt} ${toCurrency}`
+            })
+    }
 }
 
 window.onload = getCurrencies;
