@@ -28,7 +28,8 @@ function addText() {
         fetch(`https://v6.exchangerate-api.com/v6/d56e314bee9151ab29d0903d/pair/${fromCurrency}/${toCurrency}`)
             .then(res => res.json())
             .then((res) => {
-                let convertedAmt = res.conversion_rate*amount;
+                let convertedAmt = (res.conversion_rate*amount).toFixed(2);
+                //convertedAmt.toFixed(2);
                 document.getElementById("converted").innerHTML = `${amount} ${fromCurrency} is equal to ${convertedAmt} ${toCurrency}`
             })
     }
