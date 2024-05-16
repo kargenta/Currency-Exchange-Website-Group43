@@ -2,20 +2,37 @@ body {
     background-color: powderblue;
     font-size: 16px;
     font-family: 'Trebuchet MS', sans-serif;
-}
 
-
-body {
+    /*
     background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20230722/pngtree-world-s-primary-currency-exchange-in-3d-render-on-black-background-image_3770009.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     height: 100vh;
     margin: 0;
+    */
+    /*opacity: 0.5;*/ 
+    /*filter: blur(8px);*/
 }
 
+.background-image {
+    height: 1000px;
+    width:100%;
+    opacity: 0.7; 
+    filter: blur(8px);
+    display: block;
+}
 
-
+.bg-image {
+    background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20230722/pngtree-world-s-primary-currency-exchange-in-3d-render-on-black-background-image_3770009.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    margin: 0;
+    opacity: 0.7; 
+    filter: blur(8px);
+}
 
 
 #main-nav {
@@ -47,6 +64,16 @@ body {
     padding: 1px;
 }
 
+/*
+.converted {
+    background-color: floralwhite;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+*/
+
 /* Styling for the About section */
 .about-section {
     background-color: floralwhite;
@@ -69,8 +96,9 @@ body {
     line-height: 1.6;
 }
 
+
 /* Additional CSS for the Help section */
-.help-section {
+ .help-section {
     background-color: floralwhite;
     padding: 20px;
     margin: 20px;
