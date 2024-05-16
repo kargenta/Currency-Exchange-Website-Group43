@@ -4,6 +4,31 @@ body {
     font-family: 'Trebuchet MS', sans-serif;
 }
 
+
+body {
+    background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20230722/pngtree-world-s-primary-currency-exchange-in-3d-render-on-black-background-image_3770009.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    margin: 0;
+}
+
+.background-blur {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+
+
+
+
 #main-nav {
     background-color: seashell;
     font-size: 18px;
