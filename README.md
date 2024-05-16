@@ -8,16 +8,13 @@ Our target browser would be desktop browsers because we believe that most people
 
 # Developer Manual:
 ## How to install application and dependencies:
-API Database: `https://www.exchangerate-api.com/`
-* Conversion rates for 161 countries
-* Updated once every 24 hours
-* Free and no limits on amount of rates 
-
-To install, just download our code. We utilize **ExchangeRate-API**'s Standard and Pair Conversion API's. For more information, see our **API** section.
 
 ## Running your application on a server:
 NodeJS + Express
-## API:
+
+## Backend API:
+
+## Frontend API:
 ### URL Structure for the Standard API:
 `https://v6.exchangerate-api.com/v6/${api-key}/latest/${ISO4217}`
 
@@ -43,4 +40,3 @@ Again, we have offered our own personal API key but you can replace this within 
 `toCurrency`
 
 ## Future Development:
-Our current application only shows the Three Letter Currency Codes since the currency name, display symbol, and associated region(s)/country/countries are only available with **ExchangeRate-API**'s paid plan. However, future development should pull this information from a different source and integrate it within the application, subscribe to **ExchangeRate-API**'s paid plan, or locate a different databse. Collectively, we believe the former or the last would be more challenging and fulfilling.
