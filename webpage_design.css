@@ -14,6 +14,25 @@ body {
     /*opacity: 0.5;*/ 
     /*filter: blur(8px);*/
 }
+#converted{
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: none;
+    border: 2px solid black;
+    text-align: center;
+    width: 480px;
+    height: -10%;
+    right: -480px;
+    top: 100px;
+    float: center;
+    margin-right: 10px;
+    padding: 30px;
+    margin: 20px;
+    position: relative;
+    font-size: 20px;
+    display: none;
+}
 
 .background-image {
     height: 1000px;
@@ -24,7 +43,7 @@ body {
 }
 
 .bg-image {
-    background-image: url('https://wise.com/imaginary-v2/money-banks-poland-zloty-money.jpg');
+    background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20230722/pngtree-world-s-primary-currency-exchange-in-3d-render-on-black-background-image_3770009.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -152,4 +171,9 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background-color: #45a049; /* Darker green on hover */
+}
+
+label[for="amount"],label[for="from"], label[for="to"] {
+    color: white;
+    font-weight: bold;
 }
