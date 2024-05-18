@@ -48,7 +48,7 @@ function getTopCurrencies() {
   const today = new Date();
   const startDate = new Date(today.getTime() - (30 * 24 * 60 * 60 * 1000)); // 30 days ago
 
-  const url = `https://api.currencyapi.com/v3/historical?apikey=YOUR_API_KEY&base_currency=USD&start_date=${startDate.toISOString().slice(0, 10)}&end_date=${today.toISOString().slice(0, 10)}`;
+  const url = `https://api.currencyapi.com/v3/historical?apikey=d56e314bee9151ab29d0903d&base_currency=USD&start_date=${startDate.toISOString().slice(0, 10)}&end_date=${today.toISOString().slice(0, 10)}`;
 
   fetch(url)
     .then(res => res.json())
