@@ -1,9 +1,12 @@
+var host = window.location.origin;
+console.log(host)
+
 // Populate Currency Form
-function getCurrencies() {
+async function getCurrencies() {
     let fromCurrency = document.getElementById("from");
     let toCurrency = document.getElementById("to");
 
-    fetch("https://v6.exchangerate-api.com/v6/d56e314bee9151ab29d0903d/latest/USD")
+    await fetch("https://v6.exchangerate-api.com/v6/d56e314bee9151ab29d0903d/latest/USD")
         .then((res) => res.json())
         .then((res) => {
             for(const [key, value] of Object.entries(res.conversion_rates)) {
@@ -43,6 +46,14 @@ async function addText() {
         updateConvertedDiv(`${amount} ${fromCurrency} is equal to ${convertedAmt} ${toCurrency}`);
         })
   }
+}
+
+async function loadUserData() {
+  await fetch(`${host}/exchanges`)
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res)
+    })
 }
 // function getTopCurrencies() {
 //   const today = new Date();
