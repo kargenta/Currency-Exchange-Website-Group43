@@ -8,10 +8,6 @@ const port = 3000
 app.use(bodyParser.json())
 app.use(express.static(__dirname + '/public'))
 
-
-// app.use(express.json());
-// app.use(express.static('public'));
-
 const supabaseUrl = 'https://acgmelhqtxqqgsqtypgr.supabase.co' 
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFjZ21lbGhxdHhxcWdzcXR5cGdyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTYwODMwNzIsImV4cCI6MjAzMTY1OTA3Mn0.fA1kfok82zI1dmZ_R6fN3mYYCxKxRDjI5aWMaQRNyl0'
 const supabase = supabaseClient.createClient(supabaseUrl, supabaseKey)
