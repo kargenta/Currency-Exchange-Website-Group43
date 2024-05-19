@@ -8,8 +8,8 @@ const port = 3000;
 app.use(bodyParser.json())
 app.use(express.static(__dirname + '/public'));
 
-const supabaseUrl = ''
-const supabaseKey = ''
+const supabaseUrl = '' //need to add supabase url
+const supabaseKey = '' //need to add supabase Key
 const supabase = supabaseClient.createClient(supabaseUrl, supabaseKey)
 
 app.get('/', (req, res) => {
