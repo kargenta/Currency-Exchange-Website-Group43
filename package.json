@@ -1,10 +1,10 @@
 {
   "name": "currency-exchange-website-group43",
   "version": "1.0.0",
-  "description": "# Project Description: This project was created for the final project of INST 377. Our webpage was created to inform and show people about currency exchange rates. The target audience for our system would be business travelers, tourists, people that wish to send money back home from another country, as well as, foreigners in other countries. We believed that our system would make the process very simple and easy to view currency exchange rates on one single site. This system will make the process of accessing currency exchange very straightforward and quick.",
-  "main": "index.js",
+  "description": "This project was created for the final project of INST 377. Our webpage was created to inform and show people about currency exchange rates. The target audience for our system would be business travelers, tourists, people that wish to send money back home from another country, as well as, foreigners in other countries. We believed that our system would make the process very simple and easy to view currency exchange rates on one single site. This system will make the process of accessing currency exchange very straightforward and quick.",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon -e '*'"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/kargenta/Currency-Exchange-Website-Group43/issues"
   },
-  "homepage": "https://github.com/kargenta/Currency-Exchange-Website-Group43#readme"
+  "homepage": "https://github.com/kargenta/Currency-Exchange-Website-Group43#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
 }
