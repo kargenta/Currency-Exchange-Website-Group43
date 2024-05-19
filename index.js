@@ -27,7 +27,7 @@ app.post('/conversion', async (req, res) => {
     var currencyTo = req.body.to;
     var amount = req.body.amount;
     var convertedAmt = req.body.convertedAmt;
-    console.log(convertedAmt)
+    console.log("result", convertedAmt)
 
     if(!validateCurrencyCode(currencyFrom)) {
         console.log(`Currency ${currencyFrom} is Invalid`)
@@ -83,11 +83,11 @@ app.get('/conversions', async (req, res) => {
 
     const { data, error } = await supabase
         .from('conversions')
-        .select();
+        .select()
 
     if (error) {
         console.log('Error fetching currency codes:', error);
-        res.status(500).send(error);
+        res.send(error);
     } else {
         res.send(data);
     }

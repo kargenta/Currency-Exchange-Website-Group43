@@ -18,7 +18,8 @@ async function getCurrencies() {
             }
         })
     await getCodes();
-}
+};
+
 function updateConvertedDiv(content) {
   const convertedDiv = document.getElementById("converted");
   if (content) {
@@ -28,41 +29,37 @@ function updateConvertedDiv(content) {
       convertedDiv.innerHTML = '';
       convertedDiv.style.display = 'none';
   }
-}
+};
 
 async function convertedAmt() {
   let fromCurrency = document.getElementById("from").value;
   let toCurrency = document.getElementById("to").value;
   const amount = document.getElementById("amount").value;
 
-  await fetch(`https://v6.exchangerate-api.com/v6/d56e314bee9151ab29d0903d/pair/${fromCurrency}/${toCurrency}`)
-    .then(res => res.json())
-    .then((res) => {
-      //let convertedAmt = res.conversion_rate*amount;
-      let convertedAmtOnly = (res.conversion_rate*amount).toFixed(2);
-      return convertedAmtOnly;
-    })
+  const resp = await fetch(`https://v6.exchangerate-api.com/v6/d56e314bee9151ab29d0903d/pair/${fromCurrency}/${toCurrency}`);
+  const data = await resp.json();
+  return (data.conversion_rate * amount).toFixed(2);
 }
 
-async function createExchange() {
+async function createExchange(event) {
   console.log('Creating Conversion')
+  const convertedAmtVal = await convertedAmt(); 
+
   await fetch(`${host}/conversion`, {
     method: 'POST',
     body: JSON.stringify({
-      "from": `${document.getElementById('from').value}`,
-      "to": `${document.getElementById('to').value}`,
-      "amount": `${document.getElementById('amount').value}`,
-      "convertedAmt": `${convertedAmt}`
+      "from": document.getElementById('from').value,
+      "to": document.getElementById('to').value,
+      "amount": document.getElementById('amount').value,
+      "convertedAmt": convertedAmtVal
     }),
     headers: {
       "Content-type": "application/json"
     }
   })
-  .then((res) => res.json())
-  .then((res) =>  {
-  })
-
-  await makeChart();// update charts!!
+  // .then((res) => res.json())
+  // .then((res) =>  {
+  // })
   await addText();
 }
 
@@ -83,15 +80,7 @@ async function addText() {
         updateConvertedDiv(`${amount} ${fromCurrency} is equal to ${convertedAmt} ${toCurrency}`);
       })
   }
-}
-
-async function loadUserData() {
-  await fetch(`${host}/conversions`)
-    .then((res) => res.json())
-    .then((res) => {
-      console.log(res)
-      
-    })
+  await makeChart();// update charts!!
 }
 
 // get all currency codes:
@@ -145,7 +134,7 @@ async function makeChart() { // need to get user Info here
   const ctx1 = document.getElementById('myChart1');
   const ctx2 = document.getElementById('myChart2');
 
-  const [allCodesTo, allCodesFrom] = await getCodes();
+  var [allCodesTo, allCodesFrom] = await getCodes();
   
   // conversions to [currency] chart data
   const toLabels = Object.keys(allCodesTo);
