@@ -48,6 +48,19 @@ body {
     filter: blur(8px);
 }
 
+.home-mainText{
+    font-size: 22px;
+    position: absolute;
+    text-align: center;
+    border:3px solid seashell;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 100%;
+    
+}
 
 #main-nav {
     background-color: seashell;
