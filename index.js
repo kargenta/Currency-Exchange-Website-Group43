@@ -17,6 +17,10 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 //change the key
 const supabase = supabaseClient.createClient(supabaseUrl, supabaseKey)
 
+app.get('/', async (req, res) => {
+    res.sendFile('public/home_page.html', {root: __dirname})
+})
+
 
 app.post('/conversions', async (req, res) => {
     console.log('Adding User Currency Exchange')
