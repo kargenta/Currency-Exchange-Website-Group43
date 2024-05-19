@@ -13,6 +13,7 @@ Clone repository: `https://github.com/kargenta/Currency-Exchange-Website-Group43
 Make sure to set/change the directory as well if needed and that you have Node Package Manager installed.
 
 ### Installing Dependencies:
+`npm install` ??
 - Nodemon: `npm install nodemon`
 - Express: `npm install express`
 - Supabase :`npm install @supabase/supabase-js`
