@@ -89,6 +89,26 @@ app.get('/conversions', async (req, res) => {
     }
 })
 
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.post('/submit_contact_form', async (req, res) => {
+    var Name = req.body.name;
+    var Email = req.body.email;
+    var Message = req.body.message;
+
+    const { data, error } = await supabase
+        .from('outreach')
+        .insert({ 'name': Name, 'email': Email, 'message': Message })
+        .select()
+
+    if (error) {
+        console.log('Error getting the message', error);
+        res.send(error);
+    } else {
+        res.send(data);
+    }
+})
+
 app.listen(port, () => {
     console.log(`Server running at http://127.0.0.1:${port}`);
     console.log('APP IS ALIVEEE')
