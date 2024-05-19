@@ -102,5 +102,5 @@ async function addText() {
 
 window.onload = function(){
   getCurrencies();
-  getTopCurrencies();
+  //getTopCurrencies();
 }
