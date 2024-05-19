@@ -24,11 +24,15 @@ NodeJS + Express??
 `npm init` & `npm start`
 
 ## API:
+
 ### Base API:
 `http://127.0.0.1:3000`
 The server runs locally on your machine. 
 
 ### API EndPoints:
+`/` 
+Serves the home page (`home_page.html`)
+
 `/conversion`
 
 `/currencies`
