@@ -97,7 +97,7 @@ async function loadUserData() {
 async function getCodes() {
   var allCodesTo = {};
   var allCodesFrom = {};
-  await fetch(`${host}//conversions`)
+  await fetch(`${host}/conversions`)
     .then((res) => res.json())
     .then((res) => {
       res.forEach((conversion) => {
