@@ -187,13 +187,15 @@ label[for="amount"],label[for="from"], label[for="to"] {
 }
 
 #chartDiv {
-
+    display: flex;
+    align-items: center;
+    margin: auto;
 }
 
 #toChart,  #fromChart {
-
+    
 }
 
 canvas {
-    
+
 }
