@@ -40,3 +40,8 @@ Serves the home page (`home_page.html`)
 `/conversions`
 
 ## Future Development:
+- **React**: move frontend to React to allow for more dynamic updates
+- **Mobile Optimization**: optimize website for mobile devices to broaden usability
+- **User Authentication**: implement user authentication to save user preferences and conversion history
+- **Historical Data**: integrate historical exchange rate information for users to analyze currency exchange over time
+- **Additional APIs**: explore additional APIs for more accurate and comprehensive exchange rate data
