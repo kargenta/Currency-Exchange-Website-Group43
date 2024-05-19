@@ -15,8 +15,5 @@
   "bugs": {
     "url": "https://github.com/kargenta/Currency-Exchange-Website-Group43/issues"
   },
-  "homepage": "https://github.com/kargenta/Currency-Exchange-Website-Group43#readme",
-  "dependencies": {
-    "express": "^4.19.2"
-  }
+  "homepage": "https://github.com/kargenta/Currency-Exchange-Website-Group43#readme"
 }
