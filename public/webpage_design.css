@@ -193,7 +193,9 @@ label[for="amount"],label[for="from"], label[for="to"] {
 }
 
 #toChart,  #fromChart {
-    
+    width: 100%;
+    max-width: 600px;
+    margin: 20px;
 }
 
 canvas {
