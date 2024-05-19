@@ -8,35 +8,30 @@ Our target browser would be desktop browsers because we believe that most people
 
 # Developer Manual:
 ## How to install application and dependencies:
+### Installing Applciation:
+Clone repository: `https://github.com/kargenta/Currency-Exchange-Website-Group43.git`
+Make sure to set/change the directory as well if needed and that you have Node Package Manager installed.
 
+### Installing Dependencies:
+- Nodemon: `npm install nodemon`
+- Express: `npm install express`
+- Supabase :`npm install @supabase/supabase-js`
+- Body-parser: `npm install body-parser`
+- validate-currency-code: `npm install validate-currency-code`
 ## Running your application on a server:
-NodeJS + Express
+NodeJS + Express??
+`npm init` & `npm start`
 
-## Backend API:
+## API:
+### Base API:
+`http://127.0.0.1:3000`
+The server runs locally on your machine. 
 
-## Frontend API:
-### URL Structure for the Standard API:
-`https://v6.exchangerate-api.com/v6/${api-key}/latest/${ISO4217}`
+### API EndPoints:
+`/conversion`
 
-#### Formats:
-`api-key`
+`/currencies`
 
-We have offered our own API key given through **ExchangeRate-API**'s free plan, but you can replace this within *currency_exchange_code.js* and get your own at `https://app.exchangerate-api.com/sign-up`.
-
-`ISO4217`
-
-This is the specified Three Letter Currency Code for your base currency (e.g. **USD** for US Dollars, etc.). We used **USD** for simplicity, but you're free to change it within *currency_exchange_code.js* to any base currency of your choosing.
-
-### URL Structure for the Paired API:
-`https://v6.exchangerate-api.com/v6/${api-key}/pair${fromCurrency}/${toCurrency}`
-
-#### Formats:
-`api-key`
-
-Again, we have offered our own personal API key but you can replace this within *currency_exchange_code.js* and get your own at `https://app.exchangerate-api.com/sign-up`.
-
-`fromCurrency`
-
-`toCurrency`
+`/conversions`
 
 ## Future Development:
