@@ -8,20 +8,22 @@ Our target browser would be desktop browsers because we believe that most people
 
 # Developer Manual:
 ## How to install application and dependencies:
-### Installing Applciation:
+### Installing Application:
 Clone repository: `https://github.com/kargenta/Currency-Exchange-Website-Group43.git`
-Make sure to set/change the directory as well if needed and that you have Node Package Manager installed.
+Make sure to set/change the directory as well if needed and that you have Node.js installed.
 
 ### Installing Dependencies:
-`npm install` ??
+Make sure you have already installed the following dependencies:
+- Node Package Manager: `npm install` 
 - Nodemon: `npm install nodemon`
 - Express: `npm install express`
 - Supabase :`npm install @supabase/supabase-js`
 - Body-parser: `npm install body-parser`
 - validate-currency-code: `npm install validate-currency-code`
+
 ## Running your application on a server:
-NodeJS + Express??
-`npm init` & `npm start`
+Start the server using Node.js and Express
+    `npm start`
 
 ## API:
 
@@ -31,12 +33,32 @@ The server runs locally on your machine.
 
 ### API EndPoints:
 `/`: serves the home page (`home_page.html`)
+- GET
 
-`/conversion`: 
+`/conversion`: adds user's new currency conversion to the database for reference for the pie charts.
+- POST
+- **Success**: returns inserted conversion data
+    - example:
+        {
+            "from": "USD",
+            "to": "EUR",
+            "amount": "100",
+            "convertedAmt": "84.50"
+        }
+- **Error**: returns an error message depending if the currency code is invalid or there is a database error
 
-`/currencies`: 
+`/currencies`: fetches all available currencies from the database
+- GET
+- **Success**: returns a list of all the currencies
+- **Error**: returns an error message
 
-`/conversions`: 
+`/conversions`: fetches all conversion from the database
+- GET
+- **Success**: returns list of all conversions made
+- **Error**: returns an error message "Error fetching currency codes:" along with the error
+
+`/submit_contact_form`: adds form information from the contact form on `help_page.html` to database "outreach" containing all user's requiring help or more information
+- POST
 
 ## Future Development:
 - **React**: move frontend to React to allow for more dynamic updates
