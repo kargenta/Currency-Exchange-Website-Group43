@@ -1,5 +1,5 @@
 var host = window.location.origin;
-//console.log(host)
+console.log(host)
 
 // Populate Currency Form
 async function getCurrencies() {
@@ -17,6 +17,7 @@ async function getCurrencies() {
                 toCurrency.add(option.cloneNode(true));
             }
         })
+    await getCodes();
 }
 function updateConvertedDiv(content) {
   const convertedDiv = document.getElementById("converted");
@@ -27,6 +28,41 @@ function updateConvertedDiv(content) {
       convertedDiv.innerHTML = '';
       convertedDiv.style.display = 'none';
   }
+}
+
+async function convertedAmt() {
+  let fromCurrency = document.getElementById("from").value;
+  let toCurrency = document.getElementById("to").value;
+  const amount = document.getElementById("amount").value;
+
+  await fetch(`https://v6.exchangerate-api.com/v6/d56e314bee9151ab29d0903d/pair/${fromCurrency}/${toCurrency}`)
+    .then(res => res.json())
+    .then((res) => {
+      //let convertedAmt = res.conversion_rate*amount;
+      let convertedAmtOnly = (res.conversion_rate*amount).toFixed(2);
+      return convertedAmtOnly;
+    })
+}
+
+async function createExchange() {
+  console.log('Creating Conversion')
+  await fetch(`${host}/conversion`, {
+    method: 'POST',
+    body: JSON.stringify({
+      "from": `${document.getElementById('from').value}`,
+      "to": `${document.getElementById('to').value}`,
+      "amount": `${document.getElementById('amount').value}`,
+      "convertedAmt": `${convertedAmt}`
+    }),
+    headers: {
+      "Content-type": "application/json"
+    }
+  })
+  .then((res) => res.json())
+  .then((res) =>  {
+  })
+
+  await makeChart();// update charts!!
 }
 
 async function addText() {
@@ -44,7 +80,7 @@ async function addText() {
        //let convertedAmt = res.conversion_rate*amount;
         let convertedAmt = (res.conversion_rate*amount).toFixed(2);
         updateConvertedDiv(`${amount} ${fromCurrency} is equal to ${convertedAmt} ${toCurrency}`);
-        })
+      })
   }
 }
 
@@ -59,108 +95,97 @@ async function loadUserData() {
 
 // get all currency codes:
 async function getCodes() {
-  var allCodes = [];
-  await fetch(`${host}/currency-codes`)
+  var allCodesTo = {};
+  var allCodesFrom = {};
+  await fetch(`${host}//conversions`)
     .then((res) => res.json())
     .then((res) => {
-      res.forEach((currency) => {
-        const code = currency.currency_code.value;
-        console.log("curr code:", code)
-        if (!allCodes.includes(code)) {
-          allCodes.push(code)
+      res.forEach((conversion) => {
+        const from_code = conversion.currency_from;
+        const to_code = conversion.currency_to;
+
+        console.log("curr from code:", from_code)
+        console.log("curr from code:", to_code)
+        if (allCodesTo[to_code]) {
+          allCodesTo[to_code]++;
+        } else {
+          allCodesTo[to_code] = 1;
+        }
+        if (allCodesFrom[from_code]) {
+          allCodesFrom[from_code]++;
+        } else {
+          allCodesFrom[from_code] = 1;
         }
       })
     })
     .catch((error) => {
       console.error('Error fetching currency codes:', error);
     })
-  return allCodes;
+  return [allCodesTo, allCodesFrom];
+}
+
+function randomColorGenerator(num) {
+  const colors = []
+  for (let i = 0; i<num;i++) {
+    const color = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`
+    colors.push(color)
+  }
+  return colors;
 }
 
 // Chart:
-async function makeChart(codeArray=getCodes(), ) { // need to get user Info here
+async function makeChart() { // need to get user Info here
   document.getElementById('chartDiv').style.visibility = 'visible';
-  const ctx = document.getElementById('myChart');
-  let status = Chart.getChart('myChart');
-  if (status != undefined) {
-    status.destroy();
+  const ctx1 = document.getElementById('myChart1');
+  const ctx2 = document.getElementById('myChart2');
+
+  const [allCodesTo, allCodesFrom] = await getCodes();
+  
+  // conversions to [currency] chart data
+  const toLabels = Object.keys(allCodesTo);
+  const toData = Object.values(allCodesTo);
+  const toColors = randomColorGenerator(toLabels.length);
+
+  // conversions from [currency] chart data
+  const fromLabels = Object.keys(allCodesFrom);
+  const fromData = Object.values(allCodesFrom);
+  const fromColors = randomColorGenerator(fromLabels.length);
+
+  let status1 = Chart.getChart('myChart1');
+  if (status1 != undefined) {
+    status1.destroy();
   }
-  // code here
-  new Chart(ctx, {
+
+  let status2 = Chart.getChart('myChart2')
+  if (status2 != undefined) {
+    status2.destroy();
+  }
+
+  new Chart(ctx1, {
     type: 'pie',
     data: {
-      labels: codeArray, // currency codes or names
+      labels: toLabels, // currency codes or names
       datasets: [{
         label: 'Number of Conversions',
-        data: [], // get number per currencies
-        backgroundColor: [
-          'rgb(255, 99, 132)',
-          'rgb(54, 162, 235)',
-          'rgb(255, 205, 86)'
-        ],
+        data: toData, // get number per currencies
+        backgroundColor: toColors,
         hoverOffset: 4
         }]
     }
+  }) 
 
+  new Chart(ctx2, {
+    type: 'pie',
+    data: {
+      labels: fromLabels, // currency codes or names
+      datasets: [{
+        label: 'Number of Conversions',
+        data: fromData, // get number per currencies
+        backgroundColor: fromColors,
+        hoverOffset: 4
+        }]
+    }
   }) 
 }
-// function getTopCurrencies() {
-//   const today = new Date();
-//   const startDate = new Date(today.getTime() - (30 * 24 * 60 * 60 * 1000)); // 30 days ago
-//   console.log(`${startDate.toISOString().slice(0, 10)}`)
-//   console.log(`${today.toISOString().slice(0, 10)}`)
 
-//   const url = `https://api.currencyapi.com/v3/historical?apikey=d56e314bee9151ab29d0903d&base_currency=USD&start_date=${startDate.toISOString().slice(0, 10)}&end_date=${today.toISOString().slice(0, 10)}`;
-
-//   fetch(url)
-//     .then(res => res.json())
-//     .then(res => {
-//       console.log(res); // Log the full response to see what it looks like
-//       if (!res.data || !res.data[0] || !res.data[0].rates) {
-//         throw new Error("Invalid response structure");
-//       }
-
-//       const topCurrencies = Object.keys(res.data[0].rates).slice(0, 5);
-//       const historicalData = {};
-//       topCurrencies.forEach(currency => {
-//         historicalData[currency] = [];
-//         for (const day of Object.values(res.data)) {
-//           historicalData[currency].push(day.rates[currency]);
-//         }
-//       });
-
-//       const ctx = document.getElementById('topCurrenciesChart').getContext('2d');
-//       new Chart(ctx, {
-//         type: 'line',
-//         data: {
-//           labels: Array.from({ length: 30 }, (_, i) => new Date(today.getTime() - (i * 24 * 60 * 60 * 1000)).toISOString().slice(5, 10)),
-//           datasets: topCurrencies.map(currency => ({
-//             label: currency,
-//             data: historicalData[currency],
-//             borderColor: `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 1)`,
-//             fill: false
-//           }))
-//         },
-//         options: {
-//           scales: {
-//             x: {
-//               type: 'category',
-//               reverse: true
-//             },
-//             y: {
-//               beginAtZero: true
-//             }
-//           }
-//         }
-//       });
-//     })
-//     .catch(error => {
-//       console.error('Error fetching top currencies:', error);
-//       document.getElementById("converted").innerHTML = `Failed to load currency data: ${error.message}. Please try again later.`;
-//     });
-// }
-
-window.onload = function(){
-  getCurrencies();
-  //getTopCurrencies();
-}
+window.onload = getCurrencies;

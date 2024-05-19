@@ -1,7 +1,7 @@
 const supabaseClient = require('@supabase/supabase-js');
 const bodyParser = require('body-parser')
 const express = require('express')
-var {validateCurrencyCode} = require('validate-currency-code');
+var validateCurrencyCode = require('validate-currency-code');
 
 const app = express()
 const port = 3000
@@ -12,17 +12,15 @@ app.use(express.static(__dirname + '/public'))
 // app.use(express.json());
 // app.use(express.static('public'));
 
-const supabaseUrl = 'https://mpltjqyussdapezeftxw.supabase.co' //change the url
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1wbHRqcXl1c3NkYXBlemVmdHh3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTYwNzA2NDQsImV4cCI6MjAzMTY0NjY0NH0.EAcDETL8tqY4wV3vaRgbPBEQ4Qh5LB67jUs6DiB6OJ8'
-//change the key
+const supabaseUrl = 'https://acgmelhqtxqqgsqtypgr.supabase.co' 
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFjZ21lbGhxdHhxcWdzcXR5cGdyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTYwODMwNzIsImV4cCI6MjAzMTY1OTA3Mn0.fA1kfok82zI1dmZ_R6fN3mYYCxKxRDjI5aWMaQRNyl0'
 const supabase = supabaseClient.createClient(supabaseUrl, supabaseKey)
 
 app.get('/', async (req, res) => {
     res.sendFile('public/home_page.html', {root: __dirname})
 })
 
-
-app.post('/conversions', async (req, res) => {
+app.post('/conversion', async (req, res) => {
     console.log('Adding User Currency Exchange')
     var currencyFrom = req.body.from;
     var currencyTo = req.body.to;
@@ -78,7 +76,9 @@ app.get('/currencies', async (req, res) => {
 });
 
 // get user currency codes
-app.get('/user-currency-codes', async (req, res) => {
+app.get('/conversions', async (req, res) => {
+    console.log('Attempting to GET all conversions')
+
     const { data, error } = await supabase
         .from('conversions')
         .select('currency_from', 'currency_to');
@@ -92,7 +92,7 @@ app.get('/user-currency-codes', async (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log(`Server running at http://127.0.0.1:3000:${port}`);
+    console.log(`Server running at http://127.0.0.1:${port}`);
     console.log('APP IS ALIVEEE')
 });
 
