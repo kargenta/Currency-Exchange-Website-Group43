@@ -30,14 +30,13 @@ NodeJS + Express??
 The server runs locally on your machine. 
 
 ### API EndPoints:
-`/` 
-Serves the home page (`home_page.html`)
+`/`: serves the home page (`home_page.html`)
 
-`/conversion`
+`/conversion`: 
 
-`/currencies`
+`/currencies`: 
 
-`/conversions`
+`/conversions`: 
 
 ## Future Development:
 - **React**: move frontend to React to allow for more dynamic updates
