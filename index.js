@@ -20,12 +20,14 @@ app.get('/', async (req, res) => {
     res.sendFile('public/home_page.html', {root: __dirname})
 })
 
+// adding new conversion
 app.post('/conversion', async (req, res) => {
     console.log('Adding User Currency Exchange')
     var currencyFrom = req.body.from;
     var currencyTo = req.body.to;
     var amount = req.body.amount;
     var convertedAmt = req.body.convertedAmt;
+    console.log(convertedAmt)
 
     if(!validateCurrencyCode(currencyFrom)) {
         console.log(`Currency ${currencyFrom} is Invalid`)
@@ -55,7 +57,7 @@ app.post('/conversion', async (req, res) => {
         .select()
 
     if(error){
-        console.log('Error')
+        console.log('Error adding new conversion: ', error)
         res.send(error)
     }else{
         res.send(data)
@@ -81,7 +83,7 @@ app.get('/conversions', async (req, res) => {
 
     const { data, error } = await supabase
         .from('conversions')
-        .select('currency_from', 'currency_to');
+        .select();
 
     if (error) {
         console.log('Error fetching currency codes:', error);

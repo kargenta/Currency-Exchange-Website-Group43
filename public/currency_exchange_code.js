@@ -63,6 +63,7 @@ async function createExchange() {
   })
 
   await makeChart();// update charts!!
+  await addText();
 }
 
 async function addText() {
@@ -105,7 +106,7 @@ async function getCodes() {
         const to_code = conversion.currency_to;
 
         console.log("curr from code:", from_code)
-        console.log("curr from code:", to_code)
+        console.log("curr to code:", to_code)
         if (allCodesTo[to_code]) {
           allCodesTo[to_code]++;
         } else {
@@ -121,6 +122,8 @@ async function getCodes() {
     .catch((error) => {
       console.error('Error fetching currency codes:', error);
     })
+  console.log('All codes to:', allCodesTo)
+  console.log('All codes from:',allCodesFrom)
   return [allCodesTo, allCodesFrom];
 }
 
@@ -135,7 +138,10 @@ function randomColorGenerator(num) {
 
 // Chart:
 async function makeChart() { // need to get user Info here
-  document.getElementById('chartDiv').style.visibility = 'visible';
+  //change h2's
+  document.getElementById('toText').innerHTML = 'Conversions To: '
+  document.getElementById('fromText').innerHTML = 'Conversions From: '
+
   const ctx1 = document.getElementById('myChart1');
   const ctx2 = document.getElementById('myChart2');
 

@@ -21,7 +21,7 @@
             <h1>Find Exchange Rate</h1>
             <form id="exchangeRateForm" method="get" 
             action="https://v6.exchangerate-api.com/v6/d56e314bee9151ab29d0903d/latest/USD" 
-            onsubmit="addText(); return false">
+            onsubmit="createExchange(); makeChart(); return false">
                 <label for="amount">Amount: </label>
                 <input type="number" id="amount" step="0.01" required>
                 <label for="from">From: </label>
@@ -35,13 +35,13 @@
 
         </div>
         
-        <div id="chartDiv" style="visibility: hidden;">
+        <div id="chartDiv">
             <div id="toChart">
-                <h2>Conversions To: </h2>
+                <h2 id="toText"></h2>
                 <canvas id="myChart1"></canvas>
             </div>
             <div id="fromChart">
-                <h2>Conversions From: </h2>
+                <h2 id="fromText"></h2>
                 <canvas id = "myChart2"></canvas>
             </div>
             
