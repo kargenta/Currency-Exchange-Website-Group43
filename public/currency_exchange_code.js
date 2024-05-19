@@ -41,7 +41,7 @@ async function convertedAmt() {
   return (data.conversion_rate * amount).toFixed(2);
 }
 
-async function createExchange(event) {
+async function createExchange() {
   console.log('Creating Conversion')
   const convertedAmtVal = await convertedAmt(); 
 
