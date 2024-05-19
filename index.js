@@ -77,6 +77,20 @@ app.get('/currencies', async (req, res) => {
     }
 });
 
+// get user currency codes
+app.get('/user-currency-codes', async (req, res) => {
+    const { data, error } = await supabase
+        .from('conversions')
+        .select('currency_from', 'currency_to');
+
+    if (error) {
+        console.log('Error fetching currency codes:', error);
+        res.status(500).send(error);
+    } else {
+        res.send(data);
+    }
+})
+
 app.listen(port, () => {
     console.log(`Server running at http://127.0.0.1:3000:${port}`);
     console.log('APP IS ALIVEEE')

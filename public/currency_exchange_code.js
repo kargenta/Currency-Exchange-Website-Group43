@@ -1,5 +1,5 @@
 var host = window.location.origin;
-console.log(host)
+//console.log(host)
 
 // Populate Currency Form
 async function getCurrencies() {
@@ -49,11 +49,60 @@ async function addText() {
 }
 
 async function loadUserData() {
-  await fetch(`${host}/exchanges`)
+  await fetch(`${host}/conversions`)
     .then((res) => res.json())
     .then((res) => {
       console.log(res)
+      
     })
+}
+
+// get all currency codes:
+async function getCodes() {
+  var allCodes = [];
+  await fetch(`${host}/currency-codes`)
+    .then((res) => res.json())
+    .then((res) => {
+      res.forEach((currency) => {
+        const code = currency.currency_code.value;
+        console.log("curr code:", code)
+        if (!allCodes.includes(code)) {
+          allCodes.push(code)
+        }
+      })
+    })
+    .catch((error) => {
+      console.error('Error fetching currency codes:', error);
+    })
+  return allCodes;
+}
+
+// Chart:
+async function makeChart(codeArray=getCodes(), ) { // need to get user Info here
+  document.getElementById('chartDiv').style.visibility = 'visible';
+  const ctx = document.getElementById('myChart');
+  let status = Chart.getChart('myChart');
+  if (status != undefined) {
+    status.destroy();
+  }
+  // code here
+  new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: codeArray, // currency codes or names
+      datasets: [{
+        label: 'Number of Conversions',
+        data: [], // get number per currencies
+        backgroundColor: [
+          'rgb(255, 99, 132)',
+          'rgb(54, 162, 235)',
+          'rgb(255, 205, 86)'
+        ],
+        hoverOffset: 4
+        }]
+    }
+
+  }) 
 }
 // function getTopCurrencies() {
 //   const today = new Date();
