@@ -179,4 +179,8 @@ async function makeChart() { // need to get user Info here
   }) 
 }
 
+async function helpForm() {
+  console.log('Populating Table with Help Form Input');
+}
+
 window.onload = getCurrencies;
