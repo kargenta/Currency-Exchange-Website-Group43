@@ -183,4 +183,32 @@ async function helpForm() {
   console.log('Populating Table with Help Form Input');
 }
 
+async function submitContactForm(info) {
+  info.preventDefault();
+
+  const form = info.target;
+  const infoData = {
+    name: form.elements.name.value,
+    email: form.elements.email.value,
+    message: form.elements.message.value
+  };
+
+  const response = await fetch('/submit_contact_form', {
+      method: 'POST',
+      body: JSON.stringify(infoData),
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  });
+
+  if (response.ok) {
+      const res = await response.json();
+      console.log('Form submitted:', res);
+      alert('Thank you for your message. We will get back to you soon.');
+  } else {
+      console.error('Error:', await response.text());
+      alert('Failed to send message.');
+  }
+}
+
 window.onload = getCurrencies;
