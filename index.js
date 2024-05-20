@@ -89,7 +89,7 @@ app.post('/submit_contact_form', async (req, res) => {
         .select()
 
     if (error) {
-        console.log('Error getting the message', error);
+        console.log('Error getting the message:', error);
         res.send(error);
     } else {
         res.send(data);

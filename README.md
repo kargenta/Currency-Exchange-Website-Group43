@@ -22,11 +22,10 @@ Make sure you have already installed the following dependencies through the term
 - validate-currency-code: `npm install validate-currency-code`
 
 ## Running your application on a server:
-Start the server using Node.js and Express
+Start the server using Node.js and Express:
     `npm start`
 
 ## API:
-
 ### Base API:
 `http://127.0.0.1:3000`
 The server runs locally on your machine. 
@@ -45,22 +44,26 @@ The server runs locally on your machine.
             "amount": "100",
             "convertedAmt": "84.50"
         }
-- **Error**: returns an error message depending if the currency code is invalid or there is a database error
-
-`/currencies`: fetches all available currencies from the database
-- GET
-- **Success**: returns a list of all the currencies
-- **Error**: returns an error message
+- **Error**: returns an error and sends an error message to console depending if the currency code is invalid or there is a database error
 
 `/conversions`: fetches all conversion from the database
 - GET
 - **Success**: returns list of all conversions made
-- **Error**: returns an error message "Error fetching currency codes:" along with the error
+- **Error**: returns an error and sends an error message "Error fetching currency codes:" along with the error to the cnosole
 
 `/submit_contact_form`: adds form information from the contact form on `help_page.html` to database "outreach" containing all user's requiring help or more information
 - POST
+- **Success**: sends user inquiry information to 'outreach' database
+    - example:
+        {
+            "name": "John Doe",
+            "email": "johndoe@gmail.com",
+            "message": "hello world"
+        }
+- **Error**: returns an error and sends an error message "Error getting the message:" along with the error into the console
 
 ## Future Development:
+- **Full Currency Names**: develop database with the full currency names and utilize within website for better understandability
 - **React**: move frontend to React to allow for more dynamic updates
 - **Mobile Optimization**: optimize website for mobile devices to broaden usability
 - **User Authentication**: implement user authentication to save user preferences and conversion history
