@@ -179,18 +179,14 @@ async function makeChart() { // need to get user Info here
   }) 
 }
 
-async function helpForm() {
-  console.log('Populating Table with Help Form Input');
-}
-
 async function submitContactForm(info) {
   info.preventDefault();
 
   const form = info.target;
   const infoData = {
-    name: form.elements.name.value,
-    email: form.elements.email.value,
-    message: form.elements.message.value
+      name: form.elements.name.value,
+      email: form.elements.email.value,
+      message: form.elements.message.value
   };
 
   const response = await fetch('/submit_contact_form', {
@@ -202,13 +198,13 @@ async function submitContactForm(info) {
   });
 
   if (response.ok) {
-      const res = await response.json();
-      console.log('Form submitted:', res);
-      alert('Thank you for your message. We will get back to you soon.');
+      window.location.href = 'ThankYou_page.html';
   } else {
       console.error('Error:', await response.text());
       alert('Failed to send message.');
   }
 }
+
+
 
 window.onload = getCurrencies;
