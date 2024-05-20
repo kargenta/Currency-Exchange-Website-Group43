@@ -12,12 +12,9 @@ body {
     margin: 0;
     */
     /*opacity: 0.5;*/ 
-    /*filter: blur(8px);*/
-
-
-
-    
+    /*filter: blur(8px);*/  
 }
+
 #converted{
     cursor: pointer;
     background-color: white;
@@ -207,13 +204,15 @@ canvas {
   height: auto
 }
 
-
+.thank-you-message {
+  align-items: center;
+  margin:100px auto 100px auto;
+  text-align: center;
+  font-size: larger;
+}
 
 
 /* extra credit 'advanced css effect'*/
-
-
-
   
   span {
     display: inline-block;

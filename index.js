@@ -60,19 +60,6 @@ app.post('/conversion', async (req, res) => {
     }
 });
 
-// app.get('/currencies', async (req, res) => {
-//     const { data, error } = await supabase
-//         .from('currencies')
-//         .select()
-
-//     if(error){
-//         console.log('Error')
-//         res.send(error)
-//     }else{
-//         res.send(data)
-//     }
-// });
-
 // get user currency codes
 app.get('/conversions', async (req, res) => {
     console.log('Attempting to GET all conversions')

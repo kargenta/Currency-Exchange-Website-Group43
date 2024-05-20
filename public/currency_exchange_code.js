@@ -5,7 +5,7 @@ console.log(host)
 async function getCurrencies() {
     let fromCurrency = document.getElementById("from");
     let toCurrency = document.getElementById("to");
-
+    
     await fetch("https://v6.exchangerate-api.com/v6/48dd20908e28d29b16d01d11/latest/USD")
         .then((res) => res.json())
         .then((res) => {
