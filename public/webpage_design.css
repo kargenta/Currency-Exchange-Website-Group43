@@ -2,7 +2,6 @@ body {
     background-color: powderblue;
     font-size: 16px;
     font-family: 'Trebuchet MS', sans-serif;
-
     /*
     background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20230722/pngtree-world-s-primary-currency-exchange-in-3d-render-on-black-background-image_3770009.jpg');
     background-size: cover;
@@ -87,7 +86,7 @@ body {
 #main-nav ul li {
     list-style-type: none;
     display: inline-block;
-    padding: 10px;
+    padding: 20px;
 }
 
 .footer {
