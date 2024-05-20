@@ -6,7 +6,7 @@ async function getCurrencies() {
     let fromCurrency = document.getElementById("from");
     let toCurrency = document.getElementById("to");
 
-    await fetch("https://v6.exchangerate-api.com/v6/d56e314bee9151ab29d0903d/latest/USD")
+    await fetch("https://v6.exchangerate-api.com/v6/48dd20908e28d29b16d01d11/latest/USD")
         .then((res) => res.json())
         .then((res) => {
             for(const [key, value] of Object.entries(res.conversion_rates)) {
@@ -36,7 +36,7 @@ async function convertedAmt() {
   let toCurrency = document.getElementById("to").value;
   const amount = document.getElementById("amount").value;
 
-  const resp = await fetch(`https://v6.exchangerate-api.com/v6/d56e314bee9151ab29d0903d/pair/${fromCurrency}/${toCurrency}`);
+  const resp = await fetch(`https://v6.exchangerate-api.com/v6/48dd20908e28d29b16d01d11/pair/${fromCurrency}/${toCurrency}`);
   const data = await resp.json();
   return (data.conversion_rate * amount).toFixed(2);
 }
@@ -69,7 +69,7 @@ async function addText() {
     alert("You cannot convert to and from the same currency!");
     return;
   } else {
-    await fetch(`https://v6.exchangerate-api.com/v6/d56e314bee9151ab29d0903d/pair/${fromCurrency}/${toCurrency}`)
+    await fetch(`https://v6.exchangerate-api.com/v6/48dd20908e28d29b16d01d11/pair/${fromCurrency}/${toCurrency}`)
       .then(res => res.json())
       .then((res) => {
         let convertedAmt = (res.conversion_rate*amount).toFixed(2);
