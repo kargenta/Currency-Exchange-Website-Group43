@@ -75,6 +75,10 @@ body {
     position: relative;
 }
 
+#main-nav li a {
+  text-decoration: none;
+}
+
 #main-nav li:hover {
     background-color: mediumaquamarine;
     color: linen;
