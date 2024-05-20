@@ -1,23 +1,26 @@
 var host = window.location.origin;
-console.log(host)
+//console.log("host:", host)
 
 // Populate Currency Form
 async function getCurrencies() {
+  if (window.location.pathname === "/functionality_page.html") {
+    //console.log("pathname:", window.location.pathname)
     let fromCurrency = document.getElementById("from");
     let toCurrency = document.getElementById("to");
-    
+
     await fetch("https://v6.exchangerate-api.com/v6/48dd20908e28d29b16d01d11/latest/USD")
-        .then((res) => res.json())
-        .then((res) => {
-            for(const [key, value] of Object.entries(res.conversion_rates)) {
-                const option = document.createElement('option');
-                option.value = key;
-                option.text = key;
-                fromCurrency.add(option);
-                toCurrency.add(option.cloneNode(true));
-            }
-        })
+      .then((res) => res.json())
+      .then((res) => {
+        for(const [key, value] of Object.entries(res.conversion_rates)) {
+          const option = document.createElement('option');
+          option.value = key;
+          option.text = key;
+          fromCurrency.add(option);
+          toCurrency.add(option.cloneNode(true));
+        }
+      })
     await getCodes();
+  }
 };
 
 function updateConvertedDiv(content) {
@@ -90,8 +93,8 @@ async function getCodes() {
         const from_code = conversion.currency_from;
         const to_code = conversion.currency_to;
 
-        console.log("curr from code:", from_code)
-        console.log("curr to code:", to_code)
+        //console.log("curr from code:", from_code)
+        //console.log("curr to code:", to_code)
         if (allCodesTo[to_code]) {
           allCodesTo[to_code]++;
         } else {
@@ -107,8 +110,8 @@ async function getCodes() {
     .catch((error) => {
       console.error('Error fetching currency codes:', error);
     })
-  console.log('All codes to:', allCodesTo)
-  console.log('All codes from:',allCodesFrom)
+  //console.log('All codes to:', allCodesTo)
+  //console.log('All codes from:',allCodesFrom)
   return [allCodesTo, allCodesFrom];
 }
 
