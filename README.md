@@ -13,7 +13,7 @@ Clone repository: `https://github.com/kargenta/Currency-Exchange-Website-Group43
 Make sure to set/change the directory as well if needed and that you have Node.js installed.
 
 ### Installing Dependencies:
-Make sure you have already installed the following dependencies:
+Make sure you have already installed the following dependencies through the terminal:
 - Node Package Manager: `npm install` 
 - Nodemon: `npm install nodemon`
 - Express: `npm install express`
