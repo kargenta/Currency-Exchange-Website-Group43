@@ -7,6 +7,8 @@ This project was created for the final project of INST 377. Our webpage was crea
 Our target browser would be desktop browsers because we believe that most people utilizing a money conversion service would also be searching up and researching other facts about the countries they are sending/converting their money to. 
 
 # Developer Manual:
+## Vercel Domain Link: 'https://currency-exchange-website-group43.vercel.app/'
+
 ## How to install application and dependencies:
 ### Installing Application:
 Clone repository: `https://github.com/kargenta/Currency-Exchange-Website-Group43.git`
